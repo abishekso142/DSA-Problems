@@ -1,5 +1,6 @@
 package leetcode;
 
+//https://leetcode.com/problems/sort-array-by-parity/
 public class SortByParity {
 
 	public static void main(final String[] args) {

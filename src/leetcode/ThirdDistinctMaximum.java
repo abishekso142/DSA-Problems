@@ -2,6 +2,7 @@ package leetcode;
 
 import java.util.TreeSet;
 
+//https://leetcode.com/problems/third-maximum-number/
 public class ThirdDistinctMaximum {
 
 	public static void main(final String[] args) {

@@ -1,5 +1,6 @@
 package leetcode;
 
+//https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/
 public class ReplaceElementsWithGreatestRightElements {
 
 	public static void main(final String[] args) {

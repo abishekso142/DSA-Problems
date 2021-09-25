@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
+//https://leetcode.com/explore/learn/card/linked-list/209/singly-linked-list/1290/
 public class MyLinkedList {
 	Node1 head;
 
@@ -236,4 +237,24 @@ public class MyLinkedList {
 
 	}
 
+}
+
+class Node1 {
+	int val;
+	Node1 next;
+
+	Node1() {
+		val = 0;
+		next = null;
+	}
+
+	Node1(final int val) {
+		this.val = val;
+		next = null;
+	}
+
+	Node1(final int val, final Node1 next) {
+		this.val = val;
+		this.next = next;
+	}
 }

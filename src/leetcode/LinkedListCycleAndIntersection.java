@@ -1,5 +1,8 @@
 package leetcode;
 
+//https://leetcode.com/problems/intersection-of-two-linked-lists/
+//https://leetcode.com/problems/linked-list-cycle/
+
 class Node3 {
 	int val;
 	Node3 next;
