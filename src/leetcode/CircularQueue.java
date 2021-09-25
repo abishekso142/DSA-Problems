@@ -10,11 +10,6 @@ public class CircularQueue {
 		start = end = 0;
 	}
 
-	public boolean enQueue(final int value) {
-
-		arr[start++] = value;
-	}
-
 	public static void main(final String[] args) {
 		// TODO Auto-generated method stub
 

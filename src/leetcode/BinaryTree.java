@@ -1,20 +1,22 @@
+
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
 
-class Node {
+class TreeNode {
 	final int val;
-	Node left;
-	Node right;
+	TreeNode left;
+	TreeNode right;
 
-	Node() {
+	TreeNode() {
 		val = 0;
 		left = right = null;
 	}
 
-	Node(final int val) {
+	TreeNode(final int val) {
 		this.val = val;
 		left = right = null;
 	}
@@ -22,7 +24,7 @@ class Node {
 
 public class BinaryTree {
 
-	public void preorder_recur(final Node root, final List<Integer> res) {
+	public void preorder_recur(final TreeNode root, final List<Integer> res) {
 		if (root == null)
 			return;
 		res.add(root.val);
@@ -30,7 +32,7 @@ public class BinaryTree {
 		preorder_recur(root.right, res);
 	}
 
-	public void inorder_recur(final Node root, final List<Integer> res) {
+	public void inorder_recur(final TreeNode root, final List<Integer> res) {
 		if (root == null)
 			return;
 		inorder_recur(root.left, res);
@@ -38,7 +40,7 @@ public class BinaryTree {
 		inorder_recur(root.right, res);
 	}
 
-	public void postorder_recur(final Node root, final List<Integer> res) {
+	public void postorder_recur(final TreeNode root, final List<Integer> res) {
 		if (root == null)
 			return;
 		postorder_recur(root.left, res);
@@ -46,13 +48,13 @@ public class BinaryTree {
 		res.add(root.val);
 	}
 
-	public List<Integer> preorder_iterate(final Node root) {
+	public List<Integer> preorder_iterate(final TreeNode root) {
 		final List<Integer> result = new ArrayList<>();
 
-		final Stack<Node> st = new Stack<>();
+		final Stack<TreeNode> st = new Stack<>();
 
 		st.push(root);
-		Node cur = null;
+		TreeNode cur = null;
 		while (!st.isEmpty()) {
 			cur = st.pop();
 			result.add(cur.val);
@@ -67,12 +69,12 @@ public class BinaryTree {
 		return result;
 	}
 
-	public List<Integer> inorder_iterate(final Node root) {
+	public List<Integer> inorder_iterate(final TreeNode root) {
 		final List<Integer> result = new ArrayList<>();
 
-		final Stack<Node> st = new Stack<>();
+		final Stack<TreeNode> st = new Stack<>();
 
-		Node cur = root;
+		TreeNode cur = root;
 		while (cur != null || !st.isEmpty()) {
 			if (cur != null) {
 				st.push(cur);
@@ -92,14 +94,14 @@ public class BinaryTree {
 	public static void main(final String[] args) {
 		final BinaryTree tree = new BinaryTree();
 
-		final Node n1 = new Node(1);
-		final Node n2 = new Node(2);
-		final Node n3 = new Node(3);
-		final Node n4 = new Node(4);
-		final Node n5 = new Node(5);
-		final Node n6 = new Node(6);
-		final Node n7 = new Node(7);
-		final Node n8 = new Node(8);
+		final TreeNode n1 = new TreeNode(1);
+		final TreeNode n2 = new TreeNode(2);
+		final TreeNode n3 = new TreeNode(3);
+		final TreeNode n4 = new TreeNode(4);
+		final TreeNode n5 = new TreeNode(5);
+		final TreeNode n6 = new TreeNode(6);
+		final TreeNode n7 = new TreeNode(7);
+		final TreeNode n8 = new TreeNode(8);
 
 		n1.left = n2;
 		n1.right = n3;
@@ -134,7 +136,18 @@ public class BinaryTree {
 	}
 
 	private static void printList(final List<Integer> res) {
-		res.forEach(i -> System.out.print(i + " "));
+
+		// res.forEach(i -> System.out.print(i + " "));
+
+		final Iterator<Integer> it = res.iterator();
+		while (it.hasNext()) {
+			System.out.print(it.next() + " ");
+		}
+
+		for (final Integer x : res) {
+			System.out.print(x + " ");
+		}
+
 		System.out.println();
 		System.out.println();
 	}
