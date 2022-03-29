@@ -6,19 +6,19 @@ import java.util.Stack;
 
 //https://leetcode.com/explore/learn/card/linked-list/209/singly-linked-list/1290/
 public class MyLinkedList {
-	Node1 head;
+	Node head;
 
 	MyLinkedList() {
-		head = new Node1();
+		head = new Node();
 	}
 
 	MyLinkedList(final int val) {
-		head = new Node1(val);
+		head = new Node(val);
 	}
 
 	public int get(final int index) {
 		int ctr = 0;
-		Node1 temp = head;
+		Node temp = head;
 		while (temp != null) {
 			if (index == ctr) {
 				return temp.val;
@@ -30,17 +30,17 @@ public class MyLinkedList {
 	}
 
 	public void addAtHead(final int val) {
-		final Node1 n1 = new Node1(val);
+		final Node n1 = new Node(val);
 		n1.next = head;
 		head = n1;
 	}
 
 	public void addAtTail(final int val) {
-		Node1 temp = head;
+		Node temp = head;
 		while (temp.next != null) {
 			temp = head.next;
 		}
-		final Node1 n1 = new Node1(val);
+		final Node n1 = new Node(val);
 		temp.next = n1;
 	}
 
@@ -51,11 +51,11 @@ public class MyLinkedList {
 			addAtHead(val);
 		} else {
 			int ctr = 0;
-			Node1 temp = head;
+			Node temp = head;
 			while (temp != null) {
 				if (ctr == index - 1) {
-					final Node1 n1 = new Node1(val);
-					final Node1 temp2 = temp.next;
+					final Node n1 = new Node(val);
+					final Node temp2 = temp.next;
 					temp.next = n1;
 					n1.next = temp2;
 					return;
@@ -72,7 +72,7 @@ public class MyLinkedList {
 		} else if (index == 0) {
 			head = head.next;
 		} else {
-			Node1 temp = head;
+			Node temp = head;
 			int ctr = 0;
 			while (temp != null && temp.next != null) {
 				if (ctr == index - 1) {
@@ -86,7 +86,7 @@ public class MyLinkedList {
 	}
 
 	public void display() {
-		Node1 temp = head;
+		Node temp = head;
 		while (temp != null) {
 			System.out.print(temp.val + " -> ");
 			temp = temp.next;
@@ -95,8 +95,8 @@ public class MyLinkedList {
 	}
 
 	public void removeNthNodeFromEnd(final int n) {
-		final Map<Integer, Node1> map = new HashMap<>();
-		Node1 curr = head;
+		final Map<Integer, Node> map = new HashMap<>();
+		Node curr = head;
 		int len = 0;
 		while (curr != null) {
 			map.put(len, curr);
@@ -108,8 +108,8 @@ public class MyLinkedList {
 			return;
 		}
 
-		final Node1 prev = map.get(len - n - 1);
-		final Node1 rem = map.get(len - n);
+		final Node prev = map.get(len - n - 1);
+		final Node rem = map.get(len - n);
 		if (prev != null) {
 			prev.next = rem.next;
 		} else {
@@ -120,9 +120,9 @@ public class MyLinkedList {
 
 	public void reverseIterative() {
 
-		Node1 cur = head;
-		Node1 prev = null;
-		Node1 tmp = null;
+		Node cur = head;
+		Node prev = null;
+		Node tmp = null;
 
 		while (cur != null) {
 			tmp = cur.next;
@@ -142,8 +142,8 @@ public class MyLinkedList {
 	}
 
 	public void reverseUsingStack() {
-		final Stack<Node1> s = new Stack<>();
-		Node1 temp = head;
+		final Stack<Node> s = new Stack<>();
+		Node temp = head;
 		while (temp.next != null) {
 			s.add(temp);
 			temp = temp.next;
@@ -160,7 +160,7 @@ public class MyLinkedList {
 		if (head.val == val) {
 			head = head.next;
 		}
-		Node1 cur = head;
+		Node cur = head;
 		while (cur.next != null && cur.next.next != null) {
 			if (cur.next.val == val) {
 				cur.next.next = cur.next.next.next;
@@ -239,21 +239,21 @@ public class MyLinkedList {
 
 }
 
-class Node1 {
+class Node {
 	int val;
-	Node1 next;
+	Node next;
 
-	Node1() {
+	Node() {
 		val = 0;
 		next = null;
 	}
 
-	Node1(final int val) {
+	Node(final int val) {
 		this.val = val;
 		next = null;
 	}
 
-	Node1(final int val, final Node1 next) {
+	Node(final int val, final Node next) {
 		this.val = val;
 		this.next = next;
 	}
