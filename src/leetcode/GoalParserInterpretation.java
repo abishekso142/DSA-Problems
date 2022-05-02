@@ -1,5 +1,6 @@
 package leetcode;
 
+//https://leetcode.com/problems/goal-parser-interpretation/
 public class GoalParserInterpretation {
 
 	public static void main(final String[] args) {
